@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tienda Virtual SHEIN</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff;
+      color: #222;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #000;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    .productos {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+    .producto {
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      text-align: center;
+      padding: 10px;
+    }
+    .producto img {
+      width: 100%;
+      border-radius: 10px;
+    }
+    form {
+      margin: 30px;
+      padding: 20px;
+      border: 2px solid #000;
+      border-radius: 10px;
+      max-width: 400px;
+      background-color: #f9f9f9;
+    }
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      border-radius: 5px;
+      border: 1px solid #aaa;
+    }
+    button {
+      background-color: #000;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #444;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Tienda Virtual SHEIN</h1>
+    <p>Tu moda favorita al mejor precio 💅</p>
+  </header>
+
+  <section class="productos">
+    <div class="producto">
+      <img src="https://img.ltwebstatic.com/images3_pi/2024/06/13/1718267888b4ce49e46b51e745319969dd61b76d9c_thumbnail_600x.webp" alt="Blusa elegante">
+      <h3>Blusa elegante</h3>
+      <p>$75.000</p>
+    </div>
+
+    <div class="producto">
+      <img src="https://img.ltwebstatic.com/images3_pi/2024/04/10/1712742001d6542033cf1dfb5c9fcdab250c3d6a54_thumbnail_600x.webp" alt="Vestido negro">
+      <h3>Vestido negro</h3>
+      <p>$120.000</p>
+    </div>
+
+    <div class="producto">
+      <img src="https://img.ltwebstatic.com/images3_pi/2024/05/28/1716896078dcd0b44db6a6216e7fd2de56ac3a34f4_thumbnail_600x.webp" alt="Jeans ajustados">
+      <h3>Jeans ajustados</h3>
+      <p>$90.000</p>
+    </div>
+  </section>
+
+  <section>
+    <form id="pedidoForm">
+      <h3>Completa tus datos para hacer tu pedido 📦</h3>
+      <input type="text" id="nombre" placeholder="Nombre completo" required />
+      <input type="text" id="telefono" placeholder="Teléfono" required />
+      <input type="text" id="ciudad" placeholder="Ciudad" required />
+      <input type="text" id="direccion" placeholder="Dirección de envío" required />
+      <button type="submit">Enviar pedido a WhatsApp 💬</button>
+    </form>
+  </section>
+
+  <script>
+    document.getElementById("pedidoForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const nombre = document.getElementById("nombre").value;
+      const telefono = document.getElementById("telefono").value;
+      const ciudad = document.getElementById("ciudad").value;
+      const direccion = document.getElementById("direccion").value;
+      const mensaje = `📦 Nuevo pedido desde Tienda Virtual SHEIN:%0A👤 Nombre: ${nombre}%0A📞 Teléfono: ${telefono}%0A🏙️ Ciudad: ${ciudad}%0A📍 Dirección: ${direccion}`;
+      const url = `https://wa.me/573132573810?text=${mensaje}`;
+      window.open(url, "_blank");
+    });
+  </script>
+</body>
+</html>
